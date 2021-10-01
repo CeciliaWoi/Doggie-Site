@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
 
 
 router.get('/:id', async (req, res) => {
+    // LA RUTA POR PARAMS ME VA A SERVIR PARA EL DETALLE
     const { id } = req.params;
     const totalDogs = await getAllDogs();
     if(id) {

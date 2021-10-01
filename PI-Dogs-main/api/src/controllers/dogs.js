@@ -12,10 +12,10 @@ const getApiDogs = async () => {
                 life_span: e.life_span,
                 temperament: e.temperament,
                 image: e.image,
-                height_min: e.height.metric.split('-')[0],
-                height_max: e.height.metric.split('-')[1],
-                weight_min: e.weight.metric.split('-')[0],
-                weight_max: e.weight.metric.split('-')[1]
+                height_min: e.height.metric.split(' -')[0],
+                height_max: e.height.metric.split('- ')[1],
+                weight_min: e.weight.metric.split(' -')[0],
+                weight_max: e.weight.metric.split('- ')[1]
             };
         });
         return apiDogs;
