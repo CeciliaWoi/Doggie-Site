@@ -33,7 +33,7 @@ const getDbDogs = async () => {
             }
         });
         return dbDogs;
-}
+};
 
 
 const getAllDogs = async () => {
