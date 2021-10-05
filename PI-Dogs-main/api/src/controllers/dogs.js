@@ -24,7 +24,7 @@ const getApiDogs = async () => {
 
 const getDbDogs = async () => {
         const dbDogs = await Dog.findAll({
-            inlcude: {
+            include: {
                 model: Temperament,
                 attributes: ['name'],
                 through: {

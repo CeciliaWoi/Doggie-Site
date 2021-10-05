@@ -8,12 +8,15 @@ const getAllTemperaments = async () => {
         const temperaments = temperamentsApi.map (e => e.temperament)
         // console.log('TEMPERAMENTSSSS', temperaments)
         let temps = temperaments.map(e => {
-          if(e == null) {
+          if(e == undefined) {
             return "";
           }
           return e.split(", ");
-        }).flat();
-        let orderedTemps = temps.sort();
+        })
+        
+        let orderedTemps = temps.flat().sort();
+
+        // let orderedTemps = tempsFlat.sort();
 
         let tempsNoRepeat = [];
 
@@ -23,6 +26,11 @@ const getAllTemperaments = async () => {
           }
         });
         // console.log('TEMPS NO REPEATTT', tempsNoRepeat)
+
+        // const setDogs = new Set(orderedTemps);
+
+        // console.log('EL SEEEET', setDogs)
+
         tempsNoRepeat.forEach(e => {
           if(e.length) {
             Temperament.findOrCreate({
