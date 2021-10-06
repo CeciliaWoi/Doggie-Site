@@ -10,7 +10,14 @@ const getApiDogs = async () => {
                 id: e.id,
                 name: e.name,
                 life_span: e.life_span,
-                temperament: e.temperament,
+                temperament: e.temperament ?
+                             e.temperament?.split(', ').map((t) => {
+                                 return {
+                                     name: t,
+                                 }
+                             }) :
+                             e.temperament, 
+
                 image: e.image,
                 height_min: e.height.metric.split(' -')[0],
                 height_max: e.height.metric.split('- ')[1],
