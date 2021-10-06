@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_DOGS } from './index';
+import { GET_DOGS } from '.';
 
 
 export function getDogs() {

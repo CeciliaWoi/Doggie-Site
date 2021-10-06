@@ -7,6 +7,8 @@ import { filterByTemps } from "../../actions/filterByTemps";
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import Paginado from "../Paginado/Paginado";
+import { filterByExistence } from "../../actions/filterByExistence";
+import SearchBar from "../SearchBar/SearchBar";
 
 
 export default function Home () {
@@ -15,6 +17,7 @@ export default function Home () {
     
     const allDogs = useSelector((state) => state.dogs);
     const allTemperaments = useSelector((state) => state.temperaments);
+    const [orden, setOrden] = useState("")
 
     // Paginado ----------------------------------------------------------|
     const [actualPage, setActualPage] = useState(1);
@@ -49,12 +52,19 @@ export default function Home () {
         dispatch(filterByTemps(e.target.value));
     }
 
-    // function handleTemperament(e) {
-    //     dispatch(getTemperaments(e));
-    //   }
+    function handleFilterCreated(e) {
+        e.preventDefault();
+        dispatch(filterByExistence(e.target.value));
+        setActualPage(1);
+        setOrden(e.target.value);
+      }
+
 
     return (
         <div>
+            <div>
+                <SearchBar/>
+            </div>
             <Link to='/dog'> Create a new dog </Link>
             <h1> Doggiepedia </h1>
             <button onClick={e => {handleClick(e)}} > Charge all dogs again </button>
@@ -79,7 +89,7 @@ export default function Home () {
                         ))
                     }
                 </select> 
-                <select>
+                <select onChange={handleFilterCreated}>
                     <option value='All' >All Dogs</option>
                     <option value='Created' >Created Dogs</option>
                     <option value='Exist' >Existing Dogs</option>
@@ -101,14 +111,6 @@ export default function Home () {
                    );
                 })}
                 </div>
-                {/* {
-                    allDogs?.map( e => {
-                        return (
-                        <Link to= {'/home' + e.id}>
-                        <Card name= {e.name} image= {e.image.url} temperament= {e.temperament} />
-                        </Link>
-                    )})
-                } */}
             </div>
         </div>
     )
