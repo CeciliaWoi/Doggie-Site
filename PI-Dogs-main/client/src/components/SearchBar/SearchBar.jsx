@@ -3,13 +3,14 @@ import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 
 
-export default function SearchBar() {
+export default function SearchBar({setActualPage}) {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
 
     function handleInput(e) {
         e.preventDefault();
         setName(e.target.value);
+        setActualPage(1);
     }
 
     function handleSubmit(e) {

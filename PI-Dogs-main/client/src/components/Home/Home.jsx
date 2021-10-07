@@ -9,6 +9,8 @@ import Card from '../Card/Card';
 import Paginado from "../Paginado/Paginado";
 import { filterByExistence } from "../../actions/filterByExistence";
 import SearchBar from "../SearchBar/SearchBar";
+import { orderByName } from "../../actions/orderByName"
+import { orderByWeightMin } from "../../actions/orderByWeightMin"
 
 
 export default function Home () {
@@ -35,11 +37,11 @@ export default function Home () {
 
     useEffect(() => {
         dispatch(getDogs());
-    }, [])
+    }, [dispatch])
     
     useEffect(() => {
         dispatch(getTemperaments());
-    }, [])
+    }, [dispatch])
 
     
     function handleClick(e) {
@@ -50,6 +52,8 @@ export default function Home () {
     function handleFilterTemp(e) {
         e.preventDefault();
         dispatch(filterByTemps(e.target.value));
+        setActualPage(1);
+        setOrden(e.target.value);
     }
 
     function handleFilterCreated(e) {
@@ -59,21 +63,38 @@ export default function Home () {
         setOrden(e.target.value);
       }
 
+    function handleSortTemp(e) {
+        e.preventDefault(e);
+        dispatch(orderByName(e.target.value))
+        setActualPage(1);
+        setOrden(e.target.value);
+    }
+
+    function handleSortWeightMin(e) {
+        e.preventDefault(e);
+        dispatch(orderByWeightMin(e.target.value));
+        setActualPage(1);
+        setOrden(e.target.value);
+    }
+
 
     return (
         <div>
-            <div>
-                <SearchBar/>
-            </div>
-            <Link to='/dog'> Create a new dog </Link>
             <h1> Doggiepedia </h1>
+            <Link to='/dog'> Create a new dog </Link>
+            <div>
+                <SearchBar setActualPage={setActualPage} />
+            </div>
             <button onClick={e => {handleClick(e)}} > Charge all dogs again </button>
             <div>
-                <select>
-                    <option value='1' >Weight - Low to High </option>
-                    <option value='2' >Weight - High to Low </option>
+                <select onChange={e => handleSortTemp(e)}>
                     <option value='asc' >Ascendent</option>
                     <option value='desc' >Descendent</option>
+                </select>
+
+                <select onChange={e => handleSortWeightMin(e)}>
+                    <option value='1' >Weight Min - Low to High </option>
+                    <option value='2' >Weight Min- High to Low </option>
                 </select>
                 
                 <select onChange={handleFilterTemp}>
@@ -105,7 +126,12 @@ export default function Home () {
                        return ( 
                             <ul key={e.id}>
                                 <Link to={ "/home/" + e.id } >
-                                    <Card name= {e.name} image= {e.image.url} temperament= {e.temperament} />
+                                    <Card 
+                                        name= {e.name} 
+                                        image= {e.image.url} 
+                                        weight_min={e.weight_min} 
+                                        weight_max={e.weight_max} 
+                                        temperament= {e.temperament} />
                                 </Link>
                             </ul>
                    );
