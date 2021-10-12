@@ -1,10 +1,11 @@
-import { GET_DOGS, GET_TEMPERAMENTS, FILTER_BY_TEMPERAMENT, FILTER_BY_EXISTENCE, SEARCH_BY_NAME, ORDER_BY_NAME, ORDER_BY_WEIGHT_MIN} from "../actions";
+import { GET_DOGS, GET_TEMPERAMENTS, FILTER_BY_TEMPERAMENT, FILTER_BY_EXISTENCE, SEARCH_BY_NAME, ORDER_BY_NAME, ORDER_BY_WEIGHT, POST_DOG, GET_DETAIL } from "../actions";
 
 
 const initialState = {
     dogs: [],
     allDogs: [],
-    temperaments: []
+    temperaments: [],
+    detail: []
 }
 
 
@@ -22,17 +23,14 @@ function rootReducer(state = initialState, action) {
                 temperaments: action.payload
             }
         case FILTER_BY_TEMPERAMENT:
-            // console.log(action.payload)
             const todos = state.allDogs;
-            // console.log(state.dogs)
             const filteredDogs = action.payload === 'All' ?
-            state.allDogs :
-            todos.filter((dog) => {
-                return dog.temperament?.find((d) => {
-                    // console.log(d)
-                    return d.name === action.payload
-                })
-            })
+                state.allDogs :
+                    todos.filter((dog) => {
+                        return dog.temperaments?.find((d) => {
+                            return d.name === action.payload
+                        })
+                    })
             return {
                 ...state, 
                 dogs: filteredDogs
@@ -40,19 +38,19 @@ function rootReducer(state = initialState, action) {
         case FILTER_BY_EXISTENCE:
             const createdFilter =
                 action.payload === 'Created' ? 
-                state.allDogs.filter((d) => d.createdInDb) : 
-                state.allDogs.filter((d) => !d.createdInDb);
-                return {
-                    ...state,
-                    dogs: action.payload === "All" ? state.allDogs: createdFilter,
-                }
+                    state.allDogs.filter((d) => d.createdInDb) : 
+                        state.allDogs.filter((d) => !d.createdInDb);
+            return {
+                ...state,
+                dogs: action.payload === "All" ? state.allDogs: createdFilter,
+            }
         case SEARCH_BY_NAME:
-                return {
-                    ...state,
-                    dogs: action.payload
-                }
+            return {
+                ...state,
+                dogs: action.payload
+            }
         case ORDER_BY_NAME:
-                let sortArr = action.payload === 'asc' ?
+            let sortArr = action.payload === 'asc' ?
                 state.dogs.sort(function(a, b) {
                     if(a.name > b.name) {
                         return 1;
@@ -62,45 +60,38 @@ function rootReducer(state = initialState, action) {
                     }
                     return 0;
                 }) :
-                state.dogs.sort(function(a, b) {
-                    if(a.name > b.name) {
-                        return -1;
-                    }
-                    if(a.name < b.name) {
-                        return 1;
-                    }
-                    return 0;
-                })
-                return {
-                    ...state,
-                    dogs: sortArr
-                }
-            case ORDER_BY_WEIGHT_MIN:
-                let minArr = action.payload === '1' ?
-                state.dogs.sort(function(a, b) {
-                    if(a.weight_min > b.weight_min) {
-                        return 1;
-                    }
-                    if(a.weight_min < b.weight_min) {
-                        return -1;
-                    }
-                    return 0;
-                }) :
-                state.dogs.sort(function(a, b) {
-                    if(a.weight_min > b.weight_min) {
-                        return -1;
-                    }
-                    if(a.weight_min < b.weight_min) {
-                        return 1;
-                    }
-                    return 0;
-                })
-                return {
-                    ...state,
-                    dogs: minArr
-                }
-            default:
-                return state;
+                    state.dogs.sort(function(a, b) {
+                        if(a.name > b.name) {
+                            return -1;
+                        }
+                        if(a.name < b.name) {
+                            return 1;
+                        }
+                        return 0;
+                    })
+            return {
+                ...state,
+                dogs: sortArr
+            }
+        case ORDER_BY_WEIGHT:
+            let minArr = action.payload === '1' ?
+            state.dogs.sort((a, b) => a.weight_min - b.weight_min) :
+            state.dogs.sort((a, b) => b.weight_max - a.weight_max)
+            return {
+                ...state,
+                dogs: minArr
+            }
+        case POST_DOG:
+            return {
+                ...state
+            }
+        case GET_DETAIL:
+            return {
+                ...state,
+                detail: action.payload
+            }
+        default:
+            return state;
     }
 }
 

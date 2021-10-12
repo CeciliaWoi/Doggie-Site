@@ -1,4 +1,4 @@
-import { searchByName } from "../../actions/searchByName";
+import { searchByName } from "../../actions";
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 
