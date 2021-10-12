@@ -13,13 +13,14 @@ router.post('/', async (req, res) => {
         life_span,
         image,
         createdInDb,
-        temperament
+        temperaments
     } = req.body;
     
-        // if (!name || !height_min || !height_max || !weight_min || !weight_max) {
-        //     return res.status(400).send('Please, insert more info to continue!')
-        // }
-        // try {
+        if (!name || !height_min || !height_max || !weight_min || !weight_max) {
+            return res.status(400).send('Please, insert more info to continue!')
+        }
+        
+        try {
             let dogCreated = await Dog.create({
             name,
             height_min,
@@ -30,30 +31,20 @@ router.post('/', async (req, res) => {
             image,
             createdInDb
             });
-            // console.log('TEMPERAMENTSSS BODYYY', temperament)
-            // temperament.map(async (temp) => {
-                // try {
+                try {
                     const tempDb = await Temperament.findAll({
                         where: { 
-                            name: temperament 
+                            name: temperaments 
                         }
                     });
-                    // console.log('TEMPSSSS DB FINDALL', tempDb)
                     dogCreated.addTemperaments(tempDb);
                     return res.send('The dog was created successfully!')     
-                    // return ([...dogCreated, temperament]);
-            // } catch(err) {
-            //     next(err);
-            // }
-        // })
-        // console.log('DOGGGG', dogCreated)
-        // } catch(err) {
-        //     next(err);
-        // }  
-        // let temperamentDb = await Temperament.findOne({
-            //     where: { name: temperamentos }
-            // });
-            // dogCreated.addTemperaments(temperamentDb);    //???????????????
+                } catch(err) {
+                    next(err);
+                }
+        } catch(err) {
+             next(err);
+        }  
 });
 
 
