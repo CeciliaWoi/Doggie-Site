@@ -1,2 +1,120 @@
-/* cursor: not-allowed
-opacity: 0.6 */
+.bg {
+  background-image: url("../../Images/Background.png");
+}
+
+.btnOff {
+  cursor: not-allowed;
+  opacity: 0.6;
+  border: solid 1px;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 15px;
+  font-family: "Comfortaa", cursive;
+  font-size: 100%;
+}
+
+.btn {
+  border: solid black 1px;
+  width: 8rem;
+  height: 2rem;
+  border-radius: 15px;
+  font-family: "Comfortaa", cursive;
+  font-size: 100%;
+  transition-duration: 0.4s;
+  background-color: #a3d2ca;
+}
+.btn:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  background-color: #fcecdd;
+  opacity: 0.9;
+}
+
+.btnBack {
+  border: solid black 1px;
+  margin-top: 50px;
+  margin-right: 1500px;
+  width: 10rem;
+  height: 3rem;
+  border-radius: 15px;
+  transition-duration: 0.4s;
+  background-color: #fcecdd;
+  font-family: "Comfortaa", cursive;
+  font-size: 200%;
+}
+
+.btnBack:hover {
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+  background-color: #a3d2ca;
+  opacity: 0.9;
+}
+
+.titleForm {
+  text-shadow: rgba(0, 204, 255, 0.25) 0 8px 15px;
+  margin-top: 0;
+  font-family: "Walter Turncoat", cursive;
+  font-size: 300%;
+  margin-bottom: 100px;
+}
+
+.temps {
+  display: inline-block;
+  justify-content: space-between;
+}
+
+.t {
+  font-family: "Comfortaa", cursive;
+}
+
+.input {
+  width: 15rem;
+  outline: none;
+  height: 1.5rem;
+  border-radius: 4px;
+  border: solid #9e9d89 0.5px;
+}
+
+.label {
+  font-family: "Comfortaa", cursive;
+}
+
+.errors {
+  font-family: "Comfortaa", cursive;
+  color: #c37b89;
+}
+
+.selectCont {
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  height: 2rem;
+  width: 15rem;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+  border-color: #9a9483;
+  background-color: #eae7c6;
+  font-family: "Comfortaa", cursive;
+  color: #463333;
+  transition-duration: 0.4s;
+  -webkit-appearance: none;
+}
+
+.x {
+  border: solid black 1px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 15px;
+  font-family: "Comfortaa", cursive;
+  font-size: 100%;
+  transition-duration: 0.4s;
+  background-color: #DA7F8F;
+}
+
+.x:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }

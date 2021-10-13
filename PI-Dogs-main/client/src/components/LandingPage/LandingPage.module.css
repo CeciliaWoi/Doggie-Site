@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
 
 .landing {
-    background-image: url('../../Images/LandingImage.jpg');
+    background-image: url('../../Images/dogsbackground.jpg');
     height: 100vh;
     max-width: 100vw;
     margin-top: 0;
@@ -12,40 +12,44 @@
 }
 
 .title {
-    font-family: 'Staatliches';
-    font-size: 300%;
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 200%;
     margin-top: 0;
-    margin-left: 20px; 
+    color: black;
+    margin-left: 5%;
+    padding-top: 1%;
 }
 
-/* 
-.btn {
-    background-color: #F6D167;
-    border-color: #FFF7AE;
-    border-radius: 15px;
-    font-family: 'Staatliches';
-    font-size: 150%;
-    width: 10rem;
-    height: 3rem;
-} */
 
 .btn {
-  background-color: #E0C097;
+  background-color: #DBD0C0;
   border-radius: 15px;
   color: #000000;
   cursor: pointer;
-  font-family: 'Staatliches';
-  font-size: 40px;
+  font-family: 'Walter Turncoat', cursive;
+  font-size: 30px;
   transition-duration: 0.4s;
-  width: 18%;
-  margin-right: 620px;
+  width: 12%;
+  margin-left: 5%;
+  margin-top: 0;
+}
+
+.textBtn {
+  text-align: center;
 }
 
 .btn:hover {
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
-  color: rgb(56, 56, 56);
-  background-color: #F3F0D7;
+  color: white;
+  background-color: #321F28;
 }
 
 
+.madeBy {
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 150%;
+    color: black;
+    margin-right: 40%;
+    margin-top: 38%;
+}

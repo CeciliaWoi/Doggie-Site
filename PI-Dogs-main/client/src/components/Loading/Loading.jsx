@@ -4,9 +4,8 @@ import styles from "./Loading.module.css";
 
 export default function Loading() {
   return (
-    <div className={styles.GifLoading}>
-      <p>Loading...</p>
-      <img src={GifLoading} alt="Loading..." />
-    </div>
+      <div className={styles.Bg}>
+          <img className={styles.gif} src={GifLoading} alt="Loading..." />
+      </div>
   );
 }

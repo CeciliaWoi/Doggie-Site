@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+
+  .selectCont {
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+    margin-top: 1rem;
+    margin-left: 2rem;
+    height: 2rem;
+    width: 15rem;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    border-color: #C37B89;
+    background-color: #C89595;
+    font-family: 'Comfortaa', cursive;
+    color: #463333;
+    transition-duration: 0.4s;
+    -webkit-appearance: none;
+  }
+  
+  .selectCont:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+  }
+
+  .createSearch {
+    display: flex;
+  }
+  
+  .create {
+    margin-left: 440px;
+    border: solid black 1px;
+    padding: 5px;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    background-color: #FCECDD;
+    font-family: 'Comfortaa', cursive;
+  }
+
+  .create:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    background-color: #A3D2CA;
+    opacity: 0.9;
+  }
+
+  .search {
+    margin-left: 230px;
+  }
+
+  .charge {
+    margin-left: 183px;
+    border: solid black 1px;
+    padding: 5px;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+    background-color: #FCECDD;
+    font-family: 'Comfortaa', cursive;
+  }
+
+  .charge:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    background-color: #A3D2CA;
+    opacity: 0.9;
+  }
+
+  option {
+    font-size: 15px;
+    background-color: #E1E5EA;
+    font-family: 'Comfortaa', cursive;
+  }

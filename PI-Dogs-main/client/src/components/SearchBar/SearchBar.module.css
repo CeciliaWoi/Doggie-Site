@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+
+.input {
+  width: 15rem;
+  outline: none;
+  height: 1.5rem;
+  border-radius: 4px;
+  border: solid #9e9d89 0.5px;
+}
+
+.btn {
+  height: 1.8rem;
+  cursor: pointer;
+  border: solid #9e9d89 0.5px;
+  font-size: 15px;
+  background-color: #A3D2CA;
+  border-radius: 4px;
+  transition-duration: 0.4s;
+  font-family: 'Comfortaa', cursive;
+}
+
+.btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    background-color: #FCECDD;
+    opacity: 0.9;
+  }

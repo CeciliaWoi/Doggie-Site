@@ -1,0 +1,64 @@
+.bg {
+    margin: 0;
+    background-image: url("../../Images/Background.png");
+  }
+
+.cards {
+    margin-top: 50px;
+    margin-left: 708px;
+    backdrop-filter: blur(3px);
+    width: 500px;
+    height: 800px;
+    border: solid 2px;
+    border-color: #6F4C5B;
+    border-radius: 15px;
+    transition-duration: 0.4s;
+}
+
+.cards:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    transform: translateY(-2px);
+    background-color: #D1E8E4;
+    opacity: 0.9;
+  }
+
+  .name {
+    font-family: 'Comfortaa', cursive;
+    font-size: 200%;
+    margin-top: 100px;
+  }
+
+  .temps {
+    font-family: 'Comfortaa', cursive;
+    font-size: 110%;
+  }
+
+  .w {
+    font-family: 'Comfortaa', cursive;
+    font-size: 90%;
+    margin-top: 5px
+  }
+
+.image {
+    border-radius: 30px;
+}
+
+.btn {
+  margin-top: 3px;
+  margin-right: 0px;
+  height: 1.8rem;
+  width: 31.5rem;
+  cursor: pointer;
+  border: solid #9e9d89 0.5px;
+  font-size: 15px;
+  background-color: #A7BBC7;
+  border-radius: 15px;
+  transition-duration: 0.4s;
+  font-family: 'Comfortaa', cursive;
+}
+
+.btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+    background-color: #FCECDD;
+    opacity: 0.9;
+  }

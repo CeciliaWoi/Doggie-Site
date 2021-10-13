@@ -1,3 +1,22 @@
-.gifLoading {
-    background: url('../../Images/GifLoading.gif')
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+
+.dogGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 600px);
+    gap: 40px;
+    padding: 40px;
+    justify-content: center; 
+}
+
+.homeBg {
+    background-image: url('../../Images/Background.png');
+}
+
+
+.titleHome {
+    text-shadow: rgba(0, 204, 255, 0.25) 0 8px 15px;;
+    margin-top: 0;
+    font-family: 'Walter Turncoat', cursive;
+    font-size: 300%;
+    margin-bottom: 0;
 }
