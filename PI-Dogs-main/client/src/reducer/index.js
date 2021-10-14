@@ -8,7 +8,7 @@ import {
   ORDER_BY_WEIGHT,
   POST_DOG,
   GET_DETAIL,
-  CLEAR_DOG_DETAIL
+  CLEAR_DOG_DETAIL,
 } from "../actions";
 
 const initialState = {
@@ -103,9 +103,10 @@ function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
     case CLEAR_DOG_DETAIL:
-        return {
-            ...state, detail: undefined
-        }
+      return {
+        ...state,
+        detail: undefined,
+      };
     default:
       return state;
   }

@@ -1,12 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap');
-
-.Bg {
-  background-image: url('../../Images/Background.png');
-  margin-bottom: 0;
-}
-
 .gif {
-  margin: auto;
-  margin-top: 15%;
-  border-radius: 50%;
+  margin-top: 100px;
+  border-radius: 100%;
   }

@@ -1,11 +1,11 @@
 import GifLoading from "../../Images/GifLoading.gif";
-import styles from "./Loading.module.css";
+import s from "./Loading.module.css";
 
 
 export default function Loading() {
   return (
-      <div className={styles.Bg}>
-          <img className={styles.gif} src={GifLoading} alt="Loading..." />
+      <div>
+          <img className={s.gif} src={GifLoading} alt="Loading..." />
       </div>
   );
 }

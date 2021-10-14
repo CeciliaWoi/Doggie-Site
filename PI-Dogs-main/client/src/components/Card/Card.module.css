@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
 
 .cards {
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(1px);
     width: 500px;
     height: 600px;
     border: solid 2px;
-    border-color: #6F4C5B;
+    border-color: #583D72;
     border-radius: 15px;
     transition-duration: 0.4s;
 }
@@ -14,8 +14,7 @@
 .cards:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
-    background-color: #D1E8E4;
-    opacity: 0.9;
+    background-color: #F6DFEB;
   }
 
   .name {

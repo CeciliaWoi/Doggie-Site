@@ -14,9 +14,9 @@
 
 
 .titleHome {
-    text-shadow: rgba(0, 204, 255, 0.25) 0 8px 15px;;
+    text-shadow: rgba(255, 0, 0, 0.25) 4px 4px 15px;;
     margin-top: 0;
-    font-family: 'Walter Turncoat', cursive;
-    font-size: 300%;
-    margin-bottom: 0;
+    font-family: "Oregano", cursive;
+    font-size: 400%;
+    margin-bottom: 20px;
 }

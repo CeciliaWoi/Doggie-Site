@@ -1,16 +1,16 @@
 .bg {
-    margin: 0;
     background-image: url("../../Images/Background.png");
+    padding: 0;
   }
 
 .cards {
-    margin-top: 50px;
+    margin-top: 20px;
     margin-left: 708px;
     backdrop-filter: blur(3px);
     width: 500px;
     height: 800px;
     border: solid 2px;
-    border-color: #6F4C5B;
+    border-color: #6A2C70;
     border-radius: 15px;
     transition-duration: 0.4s;
 }
@@ -18,14 +18,14 @@
 .cards:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
     transform: translateY(-2px);
-    background-color: #D1E8E4;
+    background-color: #F3D1F4;
     opacity: 0.9;
   }
 
   .name {
     font-family: 'Comfortaa', cursive;
     font-size: 200%;
-    margin-top: 100px;
+    margin-top: 50px;
   }
 
   .temps {
@@ -41,10 +41,11 @@
 
 .image {
     border-radius: 30px;
+    margin-top: 50px;
 }
 
 .btn {
-  margin-top: 3px;
+  margin-top: 50px;
   margin-right: 0px;
   height: 1.8rem;
   width: 31.5rem;
