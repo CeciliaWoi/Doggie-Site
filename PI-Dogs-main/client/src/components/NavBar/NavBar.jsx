@@ -9,27 +9,27 @@ export default function NavBar({
     handleFilterTemp,
     handleSortTemp,
     handleSortWeight,
-    handleFilterCreated
+    handleFilterCreated,
 }) {
     
     const allTemperaments = useSelector((state) => state.temperaments);
     
 
     return (
-        <div>
+        <div className={s.container}>
             <div className={s.createSearch}>
                 <div className={s.create}>
                     <Link to='/dog'> Create a new dog </Link>
                 </div>
                 <div className={s.search}>
-                    <SearchBar/>
+                    <SearchBar />
                 </div>
                 <div>
-                    <button  className={s.charge} onClick={e => {handleClick(e)}} > Charge all dogs again </button>
+                    <button  className={s.charge} onClick={e => {handleClick(e)}} > Reset all dogs again </button>
                 </div>
             </div>
             <div>
-                <select className={s.selectCont} onChange={e => handleSortTemp(e)}>
+                <select className={s.selectCont} onChange={e => handleSortTemp(e)} >
                     <option selected="false" disabled >Order by Alphabet</option>
                     <option value='asc' >A - Z</option>
                     <option value='desc' >Z - A</option>
@@ -41,7 +41,7 @@ export default function NavBar({
                     <option value='2' >Weight - High to Low </option>
                 </select>
                 
-                <select className={s.selectCont} onChange={handleFilterTemp}>
+                <select className={s.selectCont} onChange={handleFilterTemp} >
                     <option selected="false" disabled >
                         Filter by Temperaments
                     </option>

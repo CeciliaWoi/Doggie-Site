@@ -9,17 +9,6 @@
   background-repeat: no-repeat;
 }
 
-.btnOff {
-  cursor: not-allowed;
-  opacity: 0.6;
-  border: solid 1px;
-  width: 8rem;
-  height: 2rem;
-  border-radius: 15px;
-  font-family: "Comfortaa", cursive;
-  font-size: 100%;
-}
-
 .btn {
   margin-top: 30px;
   border: solid black 1px;
@@ -59,7 +48,7 @@
 }
 
 .titleForm {
-  text-shadow: rgba(255, 0, 0, 0.25) 0 8px 15px;
+  text-shadow: rgba(251, 255, 0, 0.25) 0 8px 15px;
   margin-top: 0;
   font-family: "Oregano", cursive;
   font-size: 500%;
@@ -69,6 +58,7 @@
 .temps {
   display: inline-block;
   justify-content: space-between;
+  margin-left: 30px;
 }
 
 .t {
@@ -153,7 +143,7 @@
 
 .errors {
   font-family: "Comfortaa", cursive;
-  color: #c37b89;
+  color: #8E0505;
 }
 
 .selectCont {

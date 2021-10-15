@@ -9,7 +9,7 @@ import {
   POST_DOG,
   GET_DETAIL,
   CLEAR_DOG_DETAIL,
-} from "../actions";
+} from "../actions/types";
 
 const initialState = {
   dogs: [],
@@ -52,7 +52,7 @@ function rootReducer(state = initialState, action) {
           : state.allDogs.filter((d) => !d.createdInDb);
       return {
         ...state,
-        dogs: action.payload === "All" ? state.allDogs : createdFilter,
+        dogs: action.payload === "All" ? state.allDogs || state.dogs : createdFilter,
       };
     case SEARCH_BY_NAME:
       return {
@@ -105,7 +105,7 @@ function rootReducer(state = initialState, action) {
     case CLEAR_DOG_DETAIL:
       return {
         ...state,
-        detail: undefined,
+        detail: [],
       };
     default:
       return state;

@@ -10,29 +10,18 @@ function validate(input) {
   if (!input.name.trim()) {
     error.name = "Please enter a dog name";
   } else if (!input.height_min) {
-    error.height_min = "Please write a minimum height for your dog";
-  } else if (parseInt(input.height_min) < 1) {
-    error.height_min =
-      "Please write a minimum height greater than 0 for your dog";
+    error.height_min = "Please enter a minimum height for your dog";
   } else if (!input.height_max) {
-    error.height_max = "Please write a maximum height for your dog";
+    error.height_max = "Please enter a maximum height for your dog";
   } else if (parseInt(input.height_max) <= parseInt(input.height_min)) {
     error.height_max =
-      "Please write a maximum height greater than height minimum for your dog";
+      "Please enter a maximum height greater than the minimum height for your dog";
   } else if (!input.weight_min) {
-    error.weight_min = "Please write a minimum weight for your dog";
-  } else if (parseInt(input.weight_min < 1)) {
-    error.weight_min =
-      "Please write a minimum weight greater than 0 for your dog";
+    error.weight_min = "Please enter a minimum weight for your dog";
   } else if (!input.weight_max) {
-    error.height_max = "Please write a maximum weight for your dog";
+    error.weight_max = "Please enter a maximum weight for your dog";
   } else if (parseInt(input.weight_max) <= parseInt(input.weight_min)) {
-    error.weight_max =
-      "Please write a maximum weight greater than weight minimum for your dog";
-  } else if (parseInt(input.life_span) < 0) {
-    error.life_span = "Please write a life span greater than 0 for your dog";
-  } else if (!input.temperaments.length) {
-    error.temperaments = "Please select temperaments for your dog";
+    error.height_max = "Please enter a maximum weight greater than the minimum weight for your dog";
   }
   return error;
 }
@@ -63,8 +52,12 @@ export default function DogCreate() {
       ...input,
       [e.target.name]: e.target.value,
     });
-
-    setErrors(validate(input));
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
   }
 
   function handleSelect(e) {
@@ -83,13 +76,12 @@ export default function DogCreate() {
       })
     );
     if (
-      Object.keys(error).length === 0 ||
+      Object.keys(error).length > 0 ||
       !input.name ||
       !input.height_min ||
       !input.height_max ||
       !input.weight_min ||
-      !input.weight_max ||
-      !input.temperaments.length
+      !input.weight_max
     ) {
       alert("Please complete the information to create a dog!");
     } else {
@@ -131,7 +123,7 @@ export default function DogCreate() {
             value={input.name}
             name="name"
             onChange={(e) => handleChange(e)}
-            className={s.inName} 
+            className={s.inName}
             placeholder="Insert a dog name"
           />
           {error.name && <p className={s.errors}>{error.name}</p>}
@@ -139,7 +131,9 @@ export default function DogCreate() {
         <div>
           <input
             type="number"
-            value={input.height_min} min="1" max={input.height_max-1}
+            value={input.height_min}
+            min="1"
+            max="99"
             name="height_min"
             onChange={(e) => handleChange(e)}
             className={s.inhMin}
@@ -150,7 +144,9 @@ export default function DogCreate() {
         <div>
           <input
             type="number"
-            value={input.height_max} min={input.height_min+1}
+            value={input.height_max}
+            min="2"
+            max="99"
             name="height_max"
             onChange={(e) => handleChange(e)}
             className={s.inHMax}
@@ -161,7 +157,9 @@ export default function DogCreate() {
         <div>
           <input
             type="number"
-            value={input.weight_min} min="1" max={input.weight_max-1}
+            value={input.weight_min}
+            min="1"
+            max="99"
             name="weight_min"
             onChange={(e) => handleChange(e)}
             className={s.inWMin}
@@ -172,7 +170,9 @@ export default function DogCreate() {
         <div>
           <input
             type="number"
-            value={input.weight_max} min={input.weight_min+1}
+            value={input.weight_max}
+            min="2"
+            max="99"
             name="weight_max"
             onChange={(e) => handleChange(e)}
             className={s.inWMax}
@@ -184,6 +184,8 @@ export default function DogCreate() {
           <input
             type="text"
             value={input.life_span}
+            min="1"
+            max="40"
             name="life_span"
             onChange={(e) => handleChange(e)}
             className={s.inLS}
@@ -201,20 +203,15 @@ export default function DogCreate() {
             placeholder="Insert a image url"
           />
         </div>
-        <select 
-            onChange={(e) => handleSelect(e)} 
-            className={s.selectCont}
-        >
-            <option selected="false" disabled >Select your Temperaments</option>
+        <select onChange={(e) => handleSelect(e)} className={s.selectCont}>
+          <option selected="false" disabled>
+            Select your Temperaments
+          </option>
           {temperaments?.map((t) => (
             <option value={t.name}>{t.name}</option>
           ))}
         </select>
-        {Object.keys(error).length > 0 ? (
-          <button type="submit" className={s.btnOff}>
-            Create Dog
-          </button>
-        ) : (
+        {Object.keys(error).length > 0 ? null : (
           <button type="submit" className={s.btn}>
             Create Dog
           </button>

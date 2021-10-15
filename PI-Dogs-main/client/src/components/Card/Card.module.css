@@ -9,6 +9,7 @@
     border-color: #583D72;
     border-radius: 15px;
     transition-duration: 0.4s;
+    margin-left: 40px;
 }
 
 .cards:hover {

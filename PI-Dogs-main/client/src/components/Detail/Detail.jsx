@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { getDetail } from "../../actions";
 import { useDispatch, useSelector } from "react-redux";
 import ImageDog from "../../Images/Doggy.png";
@@ -8,14 +8,21 @@ import Loading from "../Loading/Loading";
 
 export default function Detail(props) {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const myDog = useSelector((state) => state.detail);
+  const temps = myDog[0]?.temperaments?.map((e) => e.name);
 
   useEffect(() => {
     dispatch(getDetail(props.match.params.id));
   }, [dispatch, props.match.params.id]);
 
-  const temps = myDog[0]?.temperaments?.map((e) => e.name);
+  function handleDeleteDetail(e) {
+    e.preventDefault();
+    dispatch(getDetail());
+    history.push("/home");
+  }
+
   return (
     <div className={s.bg}>
       {!myDog.length ? (
@@ -37,11 +44,13 @@ export default function Detail(props) {
               <h2 className={s.w}>Minimum Weight: {e.weight_min}</h2>
               <h2 className={s.w}>Maximum Weight: {e.weight_max}</h2>
               <h2 className={s.w}>Life Span: {e.life_span}</h2>
-              <h3 className={s.temps}>Temperaments: {temps.join(", ")}</h3>
-
-              <Link to="/home">
-                <button className={s.btn}>Go back Home</button>
-              </Link>
+              <h3 className={s.temps}>
+                Temperaments:{" "}
+                {temps ? temps.join(", ") : "This dog hasn't got temperaments"}
+              </h3>
+              <button className={s.btn} onClick={handleDeleteDetail}>
+                Go back Home
+              </button>
             </div>
           );
         })

@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
 
+  .container {
+    margin-right: 40px;
+  }
+
 
   .selectCont {
     border-radius: 10px;
@@ -30,7 +34,7 @@
   }
   
   .create {
-    margin-left: 440px;
+    margin-left: 425px;
     border: solid black 1px;
     padding: 5px;
     border-radius: 15px;
