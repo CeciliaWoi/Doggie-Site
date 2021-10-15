@@ -14,14 +14,13 @@ function validate(input) {
   } else if (!input.height_max) {
     error.height_max = "Please enter a maximum height for your dog";
   } else if (parseInt(input.height_max) <= parseInt(input.height_min)) {
-    error.height_max =
-      "Please enter a maximum height greater than the minimum height for your dog";
+    error.height_max ="Please enter a maximum height greater than the minimum height for your dog";
   } else if (!input.weight_min) {
     error.weight_min = "Please enter a minimum weight for your dog";
   } else if (!input.weight_max) {
     error.weight_max = "Please enter a maximum weight for your dog";
   } else if (parseInt(input.weight_max) <= parseInt(input.weight_min)) {
-    error.height_max = "Please enter a maximum weight greater than the minimum weight for your dog";
+    error.weight_max = "Please enter a maximum weight greater than the minimum weight for your dog";
   }
   return error;
 }
