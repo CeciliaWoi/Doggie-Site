@@ -6,10 +6,10 @@ const axios = require('axios');
 const getApiDogs = async () => {
         const apiResponse = await axios.get(`https://api.thedogapi.com/v1/breeds`);
         const apiDogs = await apiResponse.data.map(e => {
-            let heightMin = e.height.metric.split(' -')[0];
-            let heightMax = e.height.metric.split('- ')[1];
-            let weightMin = e.weight.metric.split(' -')[0]; 
-            let weightMax = e.weight.metric.split('- ')[1];
+            let heightMin = parseInt(e.height.metric.split(' -')[0]);
+            let heightMax = parseInt(e.height.metric.split('- ')[1]);
+            let weightMin = parseInt(e.weight.metric.split(' -')[0]); 
+            let weightMax = parseInt(e.weight.metric.split('- ')[1]);
             return {
                 id: e.id,
                 name: e.name,
@@ -22,25 +22,25 @@ const getApiDogs = async () => {
                              }) :
                              e.temperament, 
                 image: e.image.url,
-                height_min: heightMin === "NaN" || !heightMin ?
-                            !heightMax || heightMax === "NaN" ?
-                            "0" :
-                            heightMax - 1 + "":
+                height_min: !heightMin || heightMin === null ?
+                            !heightMax || heightMax === null ?
+                            0 :
+                            heightMax - 1 :
                             heightMin,
-                height_max: heightMax === "NaN" || !heightMax ?
-                            !heightMin || heightMin === "NaN" ?
-                            "0" :
-                            parseInt(heightMin) + 1 + "" :
+                height_max: !heightMax || heightMax === null ?
+                            !heightMin || heightMin === null ?
+                            0 :
+                            heightMin + 1 :
                             heightMax,    
-                weight_min: weightMin === "NaN" || !weightMin ?
-                            !weightMax || weightMax === "NaN" ?
-                            "0" :
-                            weightMax - 1 + "":
+                weight_min: !weightMin || weightMin === null ?
+                            !weightMax || weightMax === null ?
+                            0 :
+                            weightMax - 1 :
                             weightMin,
-                weight_max: weightMax === "NaN" || !weightMax ?
-                            !weightMin || weightMin === "NaN" ?
-                            "0" :
-                            parseInt(weightMin) + 1 + "" :
+                weight_max: !weightMax || weightMax === null ?
+                            !weightMin || weightMin === null ?
+                            0 :
+                            weightMin + 1 :
                             weightMax
             };
         }); 

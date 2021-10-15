@@ -4,7 +4,6 @@ const { getAllDogs } = require('../controllers/dogs');
 
 
 router.get('/', async (req, res) => {
-    // LA RUTA POR QUERY ME VA A SERVIR PARA DESPUÉS PODER BUSCAR POR NOMBRE
     const { name } = req.query;
     let totalDogs = await getAllDogs();
         if(name) {
@@ -19,7 +18,6 @@ router.get('/', async (req, res) => {
 
 
 router.get('/:id', async (req, res) => {
-    // LA RUTA POR PARAMS ME VA A SERVIR PARA EL DETALLE
     const { id } = req.params;
     const totalDogs = await getAllDogs();
     if(id) {

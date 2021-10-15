@@ -3,7 +3,7 @@ const router = Router();
 const { Dog, Temperament } = require('../db');
 
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
     let {
         name,
         height_min,
@@ -27,7 +27,7 @@ router.post('/', async (req, res) => {
             height_max,
             weight_min,
             weight_max,
-            life_span: life_span || 0,
+            life_span,
             image,
             createdInDb
             });
